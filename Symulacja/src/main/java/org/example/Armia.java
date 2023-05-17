@@ -22,7 +22,6 @@ public class Armia {
     public String nazwaArmii(){
         return nazwa;
     }
-    @Override
     public String toString() {
         return nazwa;
     }
