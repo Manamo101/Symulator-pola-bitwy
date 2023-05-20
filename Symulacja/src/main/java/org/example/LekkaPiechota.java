@@ -10,7 +10,7 @@ public class LekkaPiechota extends Piechota{
     private final String nazwaArmii;
     private Atak atak;
     private Ruch ruch;
-    public LekkaPiechota(String nazwaArmii, ArrayList<ArrayList<Object>> mapa, int x, int y){
+    public LekkaPiechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int x, int y){
         super(nazwaArmii,mapa,x,y);
         this.nazwaArmii=nazwaArmii;
         if (Armia.numerKlasy()==1)

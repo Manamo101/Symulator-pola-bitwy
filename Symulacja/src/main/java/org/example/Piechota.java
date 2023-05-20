@@ -10,7 +10,7 @@ public class Piechota extends Jednostki implements ParameryJednostek{
     private Atak atak;
     private Ruch ruch;
     private final String nazwaArmii;
-    public Piechota(String nazwaArmii, ArrayList<ArrayList<Object>> mapa, int x, int y){
+    public Piechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int x, int y){
         this.nazwaArmii=nazwaArmii;
         if (Armia.numerKlasy()==1)
             skrot="P";
