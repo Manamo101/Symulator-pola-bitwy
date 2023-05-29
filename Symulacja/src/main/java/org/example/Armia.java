@@ -12,7 +12,6 @@ public class Armia {
         this.nazwa=nazwa;
         this.liczebnosc=liczebnosc;
         this.rzedy=rzedy;
-        // Czy dobrze? intellij mowi -  for (String s : this.jednostkiRzedu = jednostkiRzedu){}
         this.jednostkiRzedu=jednostkiRzedu;
     }
     public static int numerKlasy()
