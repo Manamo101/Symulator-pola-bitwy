@@ -17,6 +17,9 @@ public class Atak {
         Integer[] index=znajdzPrzeciwnika();
         mapa.get(index[0]).get(index[1]).obrazenia(damage);
     }
+    void atakuj(int x, int y){
+        mapa.get(x).get(y).obrazenia(damage);
+    }
     Integer[] znajdzPrzeciwnika(){
         Integer[] xy = new Integer[2];
         return xy;

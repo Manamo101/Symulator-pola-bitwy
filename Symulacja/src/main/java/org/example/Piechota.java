@@ -12,18 +12,18 @@ public class Piechota extends Jednostki implements ParameryJednostek{
     private Ruch ruch;
     private String nazwaArmii;
     protected ArrayList<ArrayList<Jednostki>> mapa;
-    public Piechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int x, int y){
+    public Piechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int rzad, int kolumna){
         this.mapa=mapa;
         index = new Integer[2];
-        index[0]=x;
-        index[1]=y;
+        index[0]=rzad;
+        index[1]=kolumna;
         this.nazwaArmii=nazwaArmii;
         if (Armia.numerKlasy()==1)
             skrot="P";
         if (Armia.numerKlasy()==2)
             skrot="p";
-        atak = new Atak(mapa,x,y,damage);
-        ruch = new Ruch(mapa,x,y,dlRuchu);
+        atak = new Atak(mapa,rzad,kolumna,damage);
+        ruch = new Ruch(mapa,rzad,kolumna,dlRuchu);
     }
      public void obrazenia(int trafienie){
         hp-=trafienie;
