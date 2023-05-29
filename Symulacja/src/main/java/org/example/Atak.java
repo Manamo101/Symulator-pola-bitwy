@@ -14,7 +14,8 @@ public class Atak {
         this.mapa=mapa;
     }
     void atakuj(){
-
+        Integer[] index=znajdzPrzeciwnika();
+        mapa.get(index[0]).get(index[1]).obrazenia(damage);
     }
     Integer[] znajdzPrzeciwnika(){
         Integer[] xy = new Integer[2];

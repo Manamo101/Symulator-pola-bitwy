@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class LekkaPiechota extends Piechota{
     private String skrot;
     private int hp=70;
-    private int damage=30;
-    protected int dlRuchu=1;
-    private final String nazwaArmii;
+    private final int damage=30;
+    private final int dlRuchu=1;
+    private String nazwaArmii;
     private Atak atak;
     private Ruch ruch;
     public LekkaPiechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int x, int y){
@@ -19,9 +19,6 @@ public class LekkaPiechota extends Piechota{
             skrot="l";
         atak = new Atak(mapa,x,y,damage);
         ruch = new Ruch(mapa,x,y,dlRuchu);
-    }
-     void obrazenia(int trafienie){
-        hp-=trafienie;
     }
     public String toString() {
         return skrot;

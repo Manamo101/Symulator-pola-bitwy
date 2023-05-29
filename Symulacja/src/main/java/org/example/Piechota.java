@@ -5,12 +5,18 @@ import java.util.ArrayList;
 public class Piechota extends Jednostki implements ParameryJednostek{
     private String skrot;
     private int hp=100;
-    private int damage=40;
-    private int dlRuchu=1;
+    private final int damage=40;
+    private final int dlRuchu=1;
+    protected Integer[] index;
     private Atak atak;
     private Ruch ruch;
-    private final String nazwaArmii;
+    private String nazwaArmii;
+    protected ArrayList<ArrayList<Jednostki>> mapa;
     public Piechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int x, int y){
+        this.mapa=mapa;
+        index = new Integer[2];
+        index[0]=x;
+        index[1]=y;
         this.nazwaArmii=nazwaArmii;
         if (Armia.numerKlasy()==1)
             skrot="P";
@@ -19,8 +25,12 @@ public class Piechota extends Jednostki implements ParameryJednostek{
         atak = new Atak(mapa,x,y,damage);
         ruch = new Ruch(mapa,x,y,dlRuchu);
     }
-     void obrazenia(int trafienie){
+     public void obrazenia(int trafienie){
         hp-=trafienie;
+        if (hp<=0){
+            mapa.get(index[0]).set(index[1],null);
+            skrot=" ";
+        }
     }
     public String toString() {
             return skrot;
