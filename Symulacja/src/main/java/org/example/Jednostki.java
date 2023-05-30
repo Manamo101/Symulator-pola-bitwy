@@ -8,4 +8,6 @@ public abstract class Jednostki {
     private Atak atak;
     private Ruch ruch;
     abstract void obrazenia(int trafienie);
+    abstract void atak();
+    abstract void ruszSie();
 }

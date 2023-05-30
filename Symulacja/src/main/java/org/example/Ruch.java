@@ -14,6 +14,7 @@ public class Ruch {
     Integer[] srodekCiezkosci(){
         Integer[] xy = new Integer[2];
         return xy;
+
     }
 
     Integer[] ruszSie(){

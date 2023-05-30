@@ -7,11 +7,11 @@ public class Piechota extends Jednostki implements ParameryJednostek{
     private int hp=100;
     private final int damage=40;
     private final int dlRuchu=1;
-    protected Integer[] index;
+    private Integer[] index;
     private Atak atak;
     private Ruch ruch;
     private String nazwaArmii;
-    protected ArrayList<ArrayList<Jednostki>> mapa;
+    private ArrayList<ArrayList<Jednostki>> mapa;
     public Piechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int rzad, int kolumna){
         this.mapa=mapa;
         index = new Integer[2];
@@ -34,5 +34,11 @@ public class Piechota extends Jednostki implements ParameryJednostek{
     }
     public String toString() {
             return skrot;
+    }
+    public void atak(){
+        atak.atakuj();
+    }
+    public void ruszSie(){
+        ruch.ruszSie();
     }
 }
