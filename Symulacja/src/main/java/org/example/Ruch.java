@@ -45,7 +45,7 @@ public class Ruch {
         int rzedy = mapa.size()-1;
 
         // ruch w prawo
-        if (koordynaty[1]+1<=rzedy && mapa.get(koordynaty[0]).get(koordynaty[1]+1)==null){
+        if (koordynaty[1]+1<=kolumny && mapa.get(koordynaty[0]).get(koordynaty[1]+1)==null){
             double dl = sqrt(pow(srodekCiezkosci[0]-koordynaty[0],2)+pow(srodekCiezkosci[1]-(koordynaty[1]+1),2));
             if (dl<dlMin){
                 dlMin=dl;
@@ -62,8 +62,8 @@ public class Ruch {
                 xy[1]=koordynaty[1]-1;
             }
         }
-        //ruch w gore
-        if (koordynaty[0]+1>=0 && mapa.get(koordynaty[0]+1).get(koordynaty[1])==null){
+        //ruch w dol
+        if (koordynaty[0]+1<=rzedy && mapa.get(koordynaty[0]+1).get(koordynaty[1])==null){
             double dl = sqrt(pow(srodekCiezkosci[0]-(koordynaty[0]+1),2)+pow(srodekCiezkosci[1]-koordynaty[1],2));
             if (dl<dlMin){
                 dlMin=dl;
@@ -71,7 +71,7 @@ public class Ruch {
                 xy[1]=koordynaty[1];
             }
         }
-        //ruch w dol
+        //ruch w gore
         if (koordynaty[0]-1>=0 && mapa.get(koordynaty[0]-1).get(koordynaty[1])==null){
             double dl = sqrt(pow(srodekCiezkosci[0]-(koordynaty[0]-1),2)+pow(srodekCiezkosci[1]-koordynaty[1],2));
             if (dl<dlMin){
