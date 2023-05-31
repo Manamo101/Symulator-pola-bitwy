@@ -11,4 +11,7 @@ public abstract class Jednostki {
     abstract void atak();
     abstract void ruszSie();
     abstract String nazwaArmii();
+    abstract public int tura();
+    abstract public void turaWykonana();
+
 }
