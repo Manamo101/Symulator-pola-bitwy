@@ -50,4 +50,7 @@ public class Piechota extends Jednostki implements ParameryJednostek{
     public void turaWykonana(){
         tura++;
     }
+    public String nazwaArmii(){
+    return nazwaArmii;
+    }
 }
