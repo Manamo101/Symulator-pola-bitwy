@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Piechota extends Jednostki implements ParameryJednostek{
     private String skrot;
     private int hp=100;
+    private int tura=0;
     private final int damage=40;
     private final int dlRuchu=1;
     private Integer[] index;
@@ -20,8 +21,10 @@ public class Piechota extends Jednostki implements ParameryJednostek{
         this.nazwaArmii=nazwaArmii;
         if (Armia.numerKlasy()==1)
             skrot="P";
-        if (Armia.numerKlasy()==2)
+        else if (Armia.numerKlasy()==2)
             skrot="p";
+        else
+            skrot="X";
         atak = new Atak(mapa,rzad,kolumna,damage);
         ruch = new Ruch(mapa,rzad,kolumna,dlRuchu);
     }
@@ -39,6 +42,12 @@ public class Piechota extends Jednostki implements ParameryJednostek{
         atak.atakuj();
     }
     public void ruszSie(){
-        ruch.ruszSie();
+        index = ruch.ruszSie();
+    }
+    public int tura(){
+        return tura;
+    }
+    public void turaWykonana(){
+        tura++;
     }
 }
