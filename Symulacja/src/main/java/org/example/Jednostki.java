@@ -10,4 +10,5 @@ public abstract class Jednostki {
     abstract void obrazenia(int trafienie);
     abstract void atak();
     abstract void ruszSie();
+    abstract String nazwaArmii();
 }

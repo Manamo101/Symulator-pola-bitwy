@@ -15,11 +15,31 @@ public class Atak {
     }
     void atakuj(){
         Integer[] index=znajdzPrzeciwnika();
-        mapa.get(index[0]).get(index[1]).obrazenia(damage);
+        if(index != null) {
+            mapa.get(index[0]).get(index[1]).obrazenia(damage);
+        }
     }
 
-    Integer[] znajdzPrzeciwnika(){
+    Integer[] znajdzPrzeciwnika() {
         Integer[] xy = new Integer[2];
-        return xy;
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                int foundX = koordynaty[0] + i;
+                int foundY = koordynaty[1] + j;
+
+                if (i == 0 && j == 0) {
+                    continue;
+                }
+                if (foundX >= 0 && mapa.get(0).size()-1 >= foundX && foundY >= 0 && mapa.size()-1 >= foundY) {
+
+                    if(mapa.get(foundX).get(foundY) != null && mapa.get(foundX).get(foundY).nazwaArmii() != mapa.get(koordynaty[0]).get(koordynaty[1]).nazwaArmii()){
+                        xy[0] = foundX;
+                        xy[1] = foundY;
+                        return xy;
+                    }
+                }
+            }
+        }
+        return null;
     }
-}
+    }
