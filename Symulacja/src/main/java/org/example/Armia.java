@@ -24,4 +24,10 @@ public class Armia {
     public String toString() {
         return nazwa;
     }
+    public int liczebnosc(){
+        return liczebnosc;
+    }
+    public int liczebosc1mniej(){
+        return liczebnosc--;
+    }
 }
