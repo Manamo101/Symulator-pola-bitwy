@@ -30,7 +30,7 @@ public class Atak {
                 if (i == 0 && j == 0) {
                     continue;
                 }
-                if (foundX >= 0 && mapa.get(0).size()-1 >= foundX && foundY >= 0 && mapa.size()-1 >= foundY) {
+                if (foundX >= 0 &&  foundX<mapa.size() && foundY >= 0 &&  foundY<mapa.get(0).size()) {
 
                     if(mapa.get(foundX).get(foundY) != null && mapa.get(foundX).get(foundY).nazwaArmii() != mapa.get(koordynaty[0]).get(koordynaty[1]).nazwaArmii()){
                         xy[0] = foundX;
