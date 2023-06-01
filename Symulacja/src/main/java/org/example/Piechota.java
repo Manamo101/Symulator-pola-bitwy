@@ -43,6 +43,7 @@ public class Piechota extends Jednostki implements ParameryJednostek{
     }
     public void ruszSie(){
         index = ruch.ruszSie();
+        atak.ustawKoordynaty(index);
     }
     public int tura(){
         return tura;
