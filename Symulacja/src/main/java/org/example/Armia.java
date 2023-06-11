@@ -3,16 +3,18 @@ package org.example;
 public class Armia {
     private static int nr=0;
     private int liczebnosc;
+    private int kolumny;
     private int rzedy;
     private String nazwa;
-    private String[] jednostkiRzedu;
+    private NazwaJednostki[] jednostkiKolumny;
 
-    public Armia(String nazwa, int liczebnosc, int rzedy, String[] jednostkiRzedu){
+    public Armia(String nazwa, int kolumny, int rzedy, NazwaJednostki[] jednostkiKolumny){
         nr++;
         this.nazwa=nazwa;
-        this.liczebnosc=liczebnosc;
+        this.kolumny=kolumny;
+        liczebnosc=kolumny*rzedy;
         this.rzedy=rzedy;
-        this.jednostkiRzedu=jednostkiRzedu;
+        this.jednostkiKolumny=jednostkiKolumny;
     }
     public static int numerKlasy()
     {
