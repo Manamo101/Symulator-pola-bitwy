@@ -7,7 +7,6 @@ public class Piechota extends Jednostki implements ParameryJednostek{
     private int hp=100;
     private int tura=1;
     private final int damage=40;
-    private final int dlRuchu=1;
     private Integer[] index;
     private Atak atak;
     private Ruch ruch;
@@ -26,7 +25,7 @@ public class Piechota extends Jednostki implements ParameryJednostek{
         else
             skrot='X';
         atak = new Atak(mapa,rzad,kolumna,damage);
-        ruch = new Ruch(mapa,rzad,kolumna,dlRuchu);
+        ruch = new Ruch(mapa,rzad,kolumna);
     }
      public void obrazenia(int trafienie){
         hp-=trafienie;

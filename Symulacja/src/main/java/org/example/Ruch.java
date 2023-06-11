@@ -6,11 +6,10 @@ import static java.lang.Math.*;
 import static java.lang.Math.sqrt;
 
 public class Ruch {
-    private int dlugosc;
+
     private Integer[] koordynaty = new Integer[2];
     private ArrayList<ArrayList<Jednostki>> mapa;
-    public Ruch(ArrayList<ArrayList<Jednostki>> mapa, int x, int y,int dlugosc){
-        this.dlugosc=dlugosc;
+    public Ruch(ArrayList<ArrayList<Jednostki>> mapa, int x, int y){
         koordynaty[0]=x;
         koordynaty[1]=y;
         this.mapa=mapa;
@@ -37,7 +36,7 @@ public class Ruch {
         return xy;
     }
 
-    Integer[] ruszSie(){
+    public Integer[] ruszSie(){
         Integer[] srodekCiezkosci = srodekCiezkosci();
         Integer[] xy = new Integer[]{koordynaty[0],koordynaty[1]};
         double dlMin=sqrt(pow(srodekCiezkosci[0]-koordynaty[0],2)+pow(srodekCiezkosci[1]-(koordynaty[1]),2));

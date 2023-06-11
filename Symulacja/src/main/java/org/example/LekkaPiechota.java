@@ -6,7 +6,6 @@ public class LekkaPiechota extends Piechota{
     private char skrot;
     private int hp=70;
     private final int damage=30;
-    private final int dlRuchu=1;
     private String nazwaArmii;
     private Atak atak;
     private Ruch ruch;
@@ -20,7 +19,7 @@ public class LekkaPiechota extends Piechota{
         else
             skrot='Y';
         atak = new Atak(mapa,rzad,kolumna,damage);
-        ruch = new Ruch(mapa,rzad,kolumna,dlRuchu);
+        ruch = new Ruch(mapa,rzad,kolumna);
     }
     public String toString() {
         return Character.toString(skrot);
