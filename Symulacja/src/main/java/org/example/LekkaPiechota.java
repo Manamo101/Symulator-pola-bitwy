@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class LekkaPiechota extends Piechota{
-    private String skrot;
+    private char skrot;
     private int hp=70;
     private final int damage=30;
     private final int dlRuchu=1;
@@ -14,15 +14,15 @@ public class LekkaPiechota extends Piechota{
         super(nazwaArmii,mapa,rzad,kolumna);
         this.nazwaArmii=nazwaArmii;
         if (Armia.numerKlasy()==1)
-            skrot="L";
+            skrot='L';
         else if (Armia.numerKlasy()==2)
-            skrot="l";
+            skrot='l';
         else
-            skrot="Y";
+            skrot='Y';
         atak = new Atak(mapa,rzad,kolumna,damage);
         ruch = new Ruch(mapa,rzad,kolumna,dlRuchu);
     }
     public String toString() {
-        return skrot;
+        return Character.toString(skrot);
     }
 }

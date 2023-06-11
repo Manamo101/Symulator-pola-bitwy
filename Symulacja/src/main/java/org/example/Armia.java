@@ -27,7 +27,4 @@ public class Armia {
     public int liczebnosc(){
         return liczebnosc;
     }
-    public int liczebosc1mniej(){
-        return liczebnosc--;
-    }
 }

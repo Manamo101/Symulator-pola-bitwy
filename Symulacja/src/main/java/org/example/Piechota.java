@@ -3,9 +3,9 @@ package org.example;
 import java.util.ArrayList;
 
 public class Piechota extends Jednostki implements ParameryJednostek{
-    private String skrot;
+    private char skrot;
     private int hp=100;
-    private int tura=0;
+    private int tura=1;
     private final int damage=40;
     private final int dlRuchu=1;
     private Integer[] index;
@@ -20,11 +20,11 @@ public class Piechota extends Jednostki implements ParameryJednostek{
         index[1]=kolumna;
         this.nazwaArmii=nazwaArmii;
         if (Armia.numerKlasy()==1)
-            skrot="P";
+            skrot='P';
         else if (Armia.numerKlasy()==2)
-            skrot="p";
+            skrot='p';
         else
-            skrot="X";
+            skrot='X';
         atak = new Atak(mapa,rzad,kolumna,damage);
         ruch = new Ruch(mapa,rzad,kolumna,dlRuchu);
     }
@@ -32,11 +32,11 @@ public class Piechota extends Jednostki implements ParameryJednostek{
         hp-=trafienie;
         if (hp<=0){
             mapa.get(index[0]).set(index[1],null);
-            skrot=" ";
+            skrot=' ';
         }
     }
     public String toString() {
-            return skrot;
+            return Character.toString(skrot);
     }
     public void atak(){
         atak.atakuj();
