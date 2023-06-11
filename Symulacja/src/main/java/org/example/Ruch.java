@@ -40,9 +40,10 @@ public class Ruch {
     Integer[] ruszSie(){
         Integer[] srodekCiezkosci = srodekCiezkosci();
         Integer[] xy = new Integer[]{koordynaty[0],koordynaty[1]};
-        double dlMin=9999;
+        double dlMin=sqrt(pow(srodekCiezkosci[0]-koordynaty[0],2)+pow(srodekCiezkosci[1]-(koordynaty[1]),2));
         int kolumny = mapa.get(0).size()-1;
         int rzedy = mapa.size()-1;
+        int e=0;
 
         if (srodekCiezkosci[0]==koordynaty[0] && srodekCiezkosci[1]==koordynaty[1])
         {
@@ -56,7 +57,11 @@ public class Ruch {
                 xy[0]=koordynaty[0];
                 xy[1]=koordynaty[1]+1;
             }
+            else
+                e++;
         }
+        else
+            e++;
         //ruch w lewo
         if (koordynaty[1]-1>=0 && mapa.get(koordynaty[0]).get(koordynaty[1]-1)==null){
             double dl = sqrt(pow(srodekCiezkosci[0]-koordynaty[0],2)+pow(srodekCiezkosci[1]-(koordynaty[1]-1),2));
@@ -65,7 +70,11 @@ public class Ruch {
                 xy[0]=koordynaty[0];
                 xy[1]=koordynaty[1]-1;
             }
+            else
+                e++;
         }
+        else
+            e++;
         //ruch w dol
         if (koordynaty[0]+1<=rzedy && mapa.get(koordynaty[0]+1).get(koordynaty[1])==null){
             double dl = sqrt(pow(srodekCiezkosci[0]-(koordynaty[0]+1),2)+pow(srodekCiezkosci[1]-koordynaty[1],2));
@@ -74,7 +83,11 @@ public class Ruch {
                 xy[0]=koordynaty[0]+1;
                 xy[1]=koordynaty[1];
             }
+            else
+                e++;
         }
+        else
+            e++;
         //ruch w gore
         if (koordynaty[0]-1>=0 && mapa.get(koordynaty[0]-1).get(koordynaty[1])==null){
             double dl = sqrt(pow(srodekCiezkosci[0]-(koordynaty[0]-1),2)+pow(srodekCiezkosci[1]-koordynaty[1],2));
@@ -83,8 +96,11 @@ public class Ruch {
                 xy[0]=koordynaty[0]-1;
                 xy[1]=koordynaty[1];
             }
+            else
+                e++;
         }
-        if ( mapa.get(koordynaty[0]).get(koordynaty[1]+1)!=null && mapa.get(koordynaty[0]).get(koordynaty[1]-1)!=null &&  mapa.get(koordynaty[0]+1).get(koordynaty[1])!=null && mapa.get(koordynaty[0]-1).get(koordynaty[1])!=null){
+        else e++;
+        if ( e==4){
             return xy;
         }
         mapa.get(xy[0]).set(xy[1],mapa.get(koordynaty[0]).get(koordynaty[1]));
