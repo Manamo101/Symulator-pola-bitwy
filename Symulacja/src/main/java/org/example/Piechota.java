@@ -6,14 +6,16 @@ public class Piechota extends Jednostki implements ParameryJednostek{
     private char skrot;
     private int hp=100;
     private int tura=1;
+    private Integer[] liczebnosc;
     private final int damage=40;
     private Integer[] index;
     private Atak atak;
     private Ruch ruch;
     private String nazwaArmii;
     private ArrayList<ArrayList<Jednostki>> mapa;
-    public Piechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int rzad, int kolumna){
+    public Piechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int rzad, int kolumna, Integer[] liczebnosc){
         this.mapa=mapa;
+        this.liczebnosc=liczebnosc;
         index = new Integer[2];
         index[0]=rzad;
         index[1]=kolumna;
@@ -32,6 +34,7 @@ public class Piechota extends Jednostki implements ParameryJednostek{
         if (hp<=0){
             mapa.get(index[0]).set(index[1],null);
             skrot=' ';
+            liczebnosc[0]--;
         }
     }
     public String toString() {

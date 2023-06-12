@@ -5,6 +5,9 @@ import java.util.ArrayList;
 class Mapa {
     private static int nr=1;
     private int x=0;
+    private int rzedy, kolumny;
+    NazwaJednostki[] jednostkiKolumny;
+    private String nazwa;
     ArrayList<ArrayList<Jednostki>> mapa;
     Mapa(ArrayList<ArrayList<Jednostki>> mapa) {
         this.mapa = mapa;
@@ -22,7 +25,11 @@ class Mapa {
         }
         System.out.println();
     }
-    public void stworzArmie(String nazwa, int kolumny, int rzedy, NazwaJednostki[] jednostkiKolumny){
+    public void stworzArmie(Armia armia){
+        nazwa=armia.toString();
+        kolumny= armia.kolumny();
+        rzedy= armia.rzedy();
+        jednostkiKolumny=armia.jednostkiKolumny();
         if (nr==1){
             x=kolumny+3;
             for (int j=0; j<kolumny; j++){
@@ -32,10 +39,10 @@ class Mapa {
                     }
                     switch (jednostkiKolumny[j]){
                         case piechota:
-                            mapa.get(i).add(new Piechota(nazwa,mapa,i,j));
+                            mapa.get(i).add(new Piechota(nazwa,mapa,i,j, armia.liczebnoscTablica()));
                             break;
                         case lekkaPiechota:
-                            mapa.get(i).add(new LekkaPiechota(nazwa,mapa,i,j));
+                            mapa.get(i).add(new LekkaPiechota(nazwa,mapa,i,j, armia.liczebnoscTablica()));
                             break;
                     }
                 }
@@ -59,10 +66,10 @@ class Mapa {
 
                     switch (jednostkiKolumny[j]){
                         case piechota:
-                            mapa.get(i).add(new Piechota(nazwa,mapa,i,j+x));
+                            mapa.get(i).add(new Piechota(nazwa,mapa,i,j+x, armia.liczebnoscTablica()));
                             break;
                         case lekkaPiechota:
-                            mapa.get(i).add(new LekkaPiechota(nazwa,mapa,i,j+x));
+                            mapa.get(i).add(new LekkaPiechota(nazwa,mapa,i,j+x, armia.liczebnoscTablica()));
                             break;
                     }
                 }
