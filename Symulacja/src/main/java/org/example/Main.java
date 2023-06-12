@@ -1,11 +1,12 @@
 package org.example;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ArrayList<ArrayList<Jednostki>> mapa = new ArrayList<ArrayList<Jednostki>>();
         Mapa map = new Mapa(mapa);
         String nazwa1="dobrzy", nazwa2="zli";
@@ -74,7 +75,7 @@ public class Main {
             tura++;
             System.out.println();
             System.out.println("TURA "+tura+".   LICZEBNOSC: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
-
+            map.zapisTury(tura);
             if (tura==1)
                 map.generuj();
             if(tura%2==1){
@@ -86,7 +87,7 @@ public class Main {
                             mapa.get(i).get(j).ruszSie();
                             map.generuj();
                             System.out.println("---------------------------");
-
+                            map.zapis();
                         }
                     }
                 }
@@ -100,6 +101,7 @@ public class Main {
                             mapa.get(i).get(j).ruszSie();
                             map.generuj();
                             System.out.println("---------------------------");
+                            map.zapis();
                         }
                     }
                 }
@@ -107,6 +109,8 @@ public class Main {
         }
         System.out.println("KONIEC");
         System.out.println("ZAKONCZONO PO TURZE "+tura+".   REZULTAT: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
+        map.zapisKoniec(tura);
         map.generuj();
+        map.zapis();
     }
 }
