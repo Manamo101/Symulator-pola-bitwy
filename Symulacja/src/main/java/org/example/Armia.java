@@ -2,7 +2,7 @@ package org.example;
 
 public class Armia {
     private static int nr=0;
-    private int liczebnosc;
+    private Integer[] liczebnosc = new Integer[1];
     private int kolumny;
     private int rzedy;
     private String nazwa;
@@ -12,7 +12,7 @@ public class Armia {
         nr++;
         this.nazwa=nazwa;
         this.kolumny=kolumny;
-        liczebnosc=kolumny*rzedy;
+        liczebnosc[0]=kolumny*rzedy;
         this.rzedy=rzedy;
         this.jednostkiKolumny=jednostkiKolumny;
     }
@@ -26,7 +26,19 @@ public class Armia {
     public String toString() {
         return nazwa;
     }
-    public int liczebnosc(){
+    public Integer[] liczebnoscTablica(){
         return liczebnosc;
+    }
+    public int liczebnosc(){
+        return liczebnosc[0];
+    }
+    public int kolumny(){
+        return kolumny;
+    }
+    public int rzedy(){
+        return rzedy;
+    }
+    public NazwaJednostki[] jednostkiKolumny(){
+        return jednostkiKolumny;
     }
 }

@@ -6,12 +6,10 @@ public class LekkaPiechota extends Piechota{
     private char skrot;
     private int hp=70;
     private final int damage=30;
-    private String nazwaArmii;
     private Atak atak;
     private Ruch ruch;
-    public LekkaPiechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int rzad, int kolumna){
-        super(nazwaArmii,mapa,rzad,kolumna);
-        this.nazwaArmii=nazwaArmii;
+    public LekkaPiechota(String nazwaArmii, ArrayList<ArrayList<Jednostki>> mapa, int rzad, int kolumna, Integer[] liczebnosc){
+        super(nazwaArmii,mapa,rzad,kolumna,liczebnosc);
         if (Armia.numerKlasy()==1)
             skrot='L';
         else if (Armia.numerKlasy()==2)
