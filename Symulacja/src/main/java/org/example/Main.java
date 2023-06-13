@@ -1,12 +1,14 @@
 package org.example;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
+
+        //deklaracje zmiennych
         ArrayList<ArrayList<Jednostki>> mapa = new ArrayList<ArrayList<Jednostki>>();
         Mapa map = new Mapa(mapa);
         String nazwa1="dobrzy", nazwa2="zli";
@@ -42,6 +44,7 @@ public class Main {
             }
         }
         System.out.println("Podaj nazwe armii nr 2: ");
+        wejscie.nextLine();
         nazwa2 = wejscie.nextLine();
         System.out.println("Podaj ilosc rzedow: ");
         rzedy2 = wejscie.nextInt();
@@ -62,12 +65,18 @@ public class Main {
                     System.out.println("Blad wczytywania jednostek kolumny");
             }
         }
+        wejscie.close();
+        map.wyczyscEkran();
 
         // Tworzenie armi
         Armia armia1 = new Armia(nazwa1, kolumny1, rzedy1, grupa1);
         map.stworzArmie(armia1);
         Armia armia2 = new Armia(nazwa2, kolumny2, rzedy2, grupa2);
         map.stworzArmie(armia2);
+
+        //wyczyszczenie pliku z zapisem
+        File zapis = new File("zapis.txt");
+        new FileWriter(zapis,false).close();
 
         //pętla symulacyjna
         int tura=0;
@@ -76,8 +85,12 @@ public class Main {
             System.out.println();
             System.out.println("TURA "+tura+".   LICZEBNOSC: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
             map.zapisTury(tura);
-            if (tura==1)
-                map.generuj();
+            if (tura==1){
+                map.generuj(tura);
+                System.out.println("---------------------------");
+                try{Thread.sleep(500);}catch(InterruptedException e){System.out.println(e);}
+                map.wyczyscEkran();
+            }
             if(tura%2==1){
                 for (int j=0; j<mapa.get(0).size(); j++){
                     for (int i=0; i<mapa.size();i++){
@@ -85,9 +98,11 @@ public class Main {
                             mapa.get(i).get(j).turaWykonana();
                             mapa.get(i).get(j).atak();
                             mapa.get(i).get(j).ruszSie();
-                            map.generuj();
-                            System.out.println("---------------------------");
                             map.zapis();
+                            map.generuj(tura);
+                            System.out.println("---------------------------");
+                            try{Thread.sleep(500);}catch(InterruptedException e){System.out.println(e);}
+                            map.wyczyscEkran();
                         }
                     }
                 }
@@ -99,18 +114,18 @@ public class Main {
                             mapa.get(i).get(j).turaWykonana();
                             mapa.get(i).get(j).atak();
                             mapa.get(i).get(j).ruszSie();
-                            map.generuj();
-                            System.out.println("---------------------------");
                             map.zapis();
+                            map.generuj(tura);
+                            System.out.println("---------------------------");
+                            try{Thread.sleep(500);}catch(InterruptedException e){System.out.println(e);}
+                            map.wyczyscEkran();
                         }
                     }
                 }
             }
         }
-        System.out.println("KONIEC");
-        System.out.println("ZAKONCZONO PO TURZE "+tura+".   REZULTAT: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
         map.zapisKoniec(tura);
-        map.generuj();
+        map.generujZakonczenie(tura);
         map.zapis();
     }
 }

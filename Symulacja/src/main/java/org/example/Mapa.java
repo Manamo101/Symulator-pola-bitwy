@@ -17,7 +17,13 @@ class Mapa {
         this.mapa = mapa;
     }
 
-    public void generuj() {
+    public void wyczyscEkran() throws IOException, InterruptedException {
+        //tu wstawić kod na czyszczenie ekranu jesli sie da
+    }
+
+    public void generuj(int tura) {
+        //System.out.println();
+        //System.out.println("TURA "+tura+".   LICZEBNOSC: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
         for (int i = 0; i < mapa.size(); i++) {
             for (int j = 0; j < mapa.get(0).size(); j++) {
                 if (mapa.get(i).get(j) != null)
@@ -27,7 +33,20 @@ class Mapa {
             }
             System.out.println();
         }
-        System.out.println();
+    }
+
+    public void generujZakonczenie(int tura){
+        System.out.println("KONIEC");
+        System.out.println("ZAKONCZONO PO TURZE "+tura+".   REZULTAT: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
+        for (int i = 0; i < mapa.size(); i++) {
+            for (int j = 0; j < mapa.get(0).size(); j++) {
+                if (mapa.get(i).get(j) != null)
+                    System.out.print(mapa.get(i).get(j));
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
     }
 
     public void stworzArmie(Armia armia) {
@@ -99,18 +118,6 @@ class Mapa {
         writer.close();
     }
 
-    public void zapisKoniec(int tura) throws IOException {
-        File zapis = new File("zapis.txt");
-        FileWriter writer = new FileWriter(zapis, true);
-        writer.write("\n");
-        writer.write("KONIEC");
-        writer.write("\n");
-        writer.write("ZAKONCZONO PO TURZE "+tura+".   REZULTAT: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
-
-        writer.close();
-    }
-
-
     public void zapis() throws IOException {
         File zapis = new File("zapis.txt");
         FileWriter writer = new FileWriter(zapis, true);
@@ -127,7 +134,18 @@ class Mapa {
         writer.write("---------------------------");
         writer.close();
     }
+
+    public void zapisKoniec(int tura) throws IOException {
+        File zapis = new File("zapis.txt");
+        FileWriter writer = new FileWriter(zapis, true);
+        writer.write("\n");
+        writer.write("KONIEC");
+        writer.write("\n");
+        writer.write("ZAKONCZONO PO TURZE "+tura+".   REZULTAT: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
+
+        writer.close();
     }
+}
 
 
 
