@@ -16,14 +16,7 @@ class Mapa {
     Mapa(ArrayList<ArrayList<Jednostki>> mapa) {
         this.mapa = mapa;
     }
-
-    public void wyczyscEkran() throws IOException, InterruptedException {
-        //tu wstawić kod na czyszczenie ekranu jesli sie da
-    }
-
     public void generuj(int tura) {
-        //System.out.println();
-        //System.out.println("TURA "+tura+".   LICZEBNOSC: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
         for (int i = 0; i < mapa.size(); i++) {
             for (int j = 0; j < mapa.get(0).size(); j++) {
                 if (mapa.get(i).get(j) != null)
@@ -56,7 +49,7 @@ class Mapa {
         jednostkiKolumny = armia.jednostkiKolumny();
         if (nr == 1) {
             armia1 = armia;
-            x = kolumny + 3;
+            x = kolumny + 5;
             for (int j = 0; j < kolumny; j++) {
                 for (int i = 0; i < rzedy; i++) {
                     if (j == 0) {
@@ -76,6 +69,9 @@ class Mapa {
                 mapa.get(i).add(null);
                 mapa.get(i).add(null);
                 mapa.get(i).add(null);
+                mapa.get(i).add(null);
+                mapa.get(i).add(null);
+
             }
         } else if (nr == 2) {
             armia2 = armia;
@@ -142,7 +138,6 @@ class Mapa {
         writer.write("KONIEC");
         writer.write("\n");
         writer.write("ZAKONCZONO PO TURZE "+tura+".   REZULTAT: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
-
         writer.close();
     }
 }

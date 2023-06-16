@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-
         //deklaracje zmiennych
         ArrayList<ArrayList<Jednostki>> mapa = new ArrayList<ArrayList<Jednostki>>();
         Mapa map = new Mapa(mapa);
@@ -16,11 +15,8 @@ public class Main {
         int kolumny2=3, rzedy2=3;
         Scanner wejscie = new Scanner(System.in);
         NazwaJednostki[] grupa1, grupa2;
-        //grupa1 = new NazwaJednostki[]{NazwaJednostki.piechota,NazwaJednostki.piechota,NazwaJednostki.piechota,NazwaJednostki.piechota};
-        //grupa2= new NazwaJednostki[]{NazwaJednostki.lekkaPiechota,NazwaJednostki.lekkaPiechota,NazwaJednostki.piechota};
 
         //MENU
-
         System.out.println("SYMULATOR POLA BITWY");
         System.out.println("Podaj nazwe armii nr 1: ");
         nazwa1 = wejscie.nextLine();
@@ -66,7 +62,6 @@ public class Main {
             }
         }
         wejscie.close();
-        map.wyczyscEkran();
 
         // Tworzenie armi
         Armia armia1 = new Armia(nazwa1, kolumny1, rzedy1, grupa1);
@@ -89,7 +84,6 @@ public class Main {
                 map.generuj(tura);
                 System.out.println("---------------------------");
                 try{Thread.sleep(500);}catch(InterruptedException e){System.out.println(e);}
-                map.wyczyscEkran();
             }
             if(tura%2==1){
                 for (int j=0; j<mapa.get(0).size(); j++){
@@ -102,7 +96,6 @@ public class Main {
                             map.generuj(tura);
                             System.out.println("---------------------------");
                             try{Thread.sleep(500);}catch(InterruptedException e){System.out.println(e);}
-                            map.wyczyscEkran();
                         }
                     }
                 }
@@ -118,7 +111,6 @@ public class Main {
                             map.generuj(tura);
                             System.out.println("---------------------------");
                             try{Thread.sleep(500);}catch(InterruptedException e){System.out.println(e);}
-                            map.wyczyscEkran();
                         }
                     }
                 }
