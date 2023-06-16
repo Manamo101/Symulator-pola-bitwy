@@ -4,8 +4,28 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * <p>
+ *  Klasa główna Main.
+ * </p>
+ *<p>
+ *  To w niej zachodzi impelentacja całego programu.
+ *</p>
+ * @author Arkadiusz Błasiak oraz Adam Krawczyk
+ */
 public class Main {
+    /**
+     * <p>
+     *  metoda main wykorzystująca całą funcjonalność.
+     * </p>* <p>
+     *  Odpowiada za proces przebiegu symulacji
+     * </p>
+     *
+     * Odpowiada za proces przebiegu symulacji
+     *
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws IOException, InterruptedException {
         //deklaracje zmiennych
         ArrayList<ArrayList<Jednostki>> mapa = new ArrayList<ArrayList<Jednostki>>();

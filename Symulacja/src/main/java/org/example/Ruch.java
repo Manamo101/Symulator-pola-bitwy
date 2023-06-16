@@ -5,6 +5,15 @@ import java.util.ArrayList;
 import static java.lang.Math.*;
 import static java.lang.Math.sqrt;
 
+/**
+ * <p>
+ *     Klasa odpowiedzialna za funkcję poruszania się.
+ * </p>
+ * <p>
+ *     Jest to klasa wywoływana na potrzeby jednostek, aby posiadały funkcję poruszania się po mapie.
+ *     Jest to klasa agregowana.
+ * </p>
+ */
 public class Ruch {
 
     private Integer[] koordynaty = new Integer[2];
@@ -14,6 +23,11 @@ public class Ruch {
         koordynaty[1]=y;
         this.mapa=mapa;
     }
+
+    /**
+     * Oblicza środek ciężkości mapy.
+     * @return współrzędne środka ciężkości.
+     */
     Integer[] srodekCiezkosci(){
         int kolumny = mapa.get(0).size();
         int rzedy = mapa.size();
@@ -36,6 +50,10 @@ public class Ruch {
         return xy;
     }
 
+    /**
+     * Znajduje optymalne położenie względem środka ciężkości.
+     * @return zaktualizowane położenie jednostki
+     */
     public Integer[] ruszSie(){
         Integer[] srodekCiezkosci = srodekCiezkosci();
         Integer[] xy = new Integer[]{koordynaty[0],koordynaty[1]};

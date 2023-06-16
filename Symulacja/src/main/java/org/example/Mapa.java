@@ -3,6 +3,14 @@ package org.example;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * <p>
+ *     Odpowiada za sprawne działanie symulacji.
+ * </p>
+ * <p>
+ *     Wykorzystywana jest aby oczyścić kod w metodzie main z niepotrzebnych zabiegów, które mogą działać oddzielnie.
+ * </p>
+ */
 class Mapa {
     private static int nr = 1;
     private int x = 0;
@@ -16,6 +24,11 @@ class Mapa {
     Mapa(ArrayList<ArrayList<Jednostki>> mapa) {
         this.mapa = mapa;
     }
+
+    /**
+     * Pokazuje na ekranie aktualną sytuajcę na polu bitwy.
+     * @param tura inforamcja o numerze aktualnej przebiegającej tury
+     */
     public void generuj(int tura) {
         for (int i = 0; i < mapa.size(); i++) {
             for (int j = 0; j < mapa.get(0).size(); j++) {
@@ -28,6 +41,10 @@ class Mapa {
         }
     }
 
+    /**
+     * Pokazuje na ekranie rezululat bitwy.
+     * @param tura inforamcja o numerze aktualnej przebiegającej tury
+     */
     public void generujZakonczenie(int tura){
         System.out.println("KONIEC");
         System.out.println("ZAKONCZONO PO TURZE "+tura+".   REZULTAT: "+armia1+" "+armia1.liczebnosc()+"; "+armia2+" "+armia2.liczebnosc());
@@ -42,6 +59,10 @@ class Mapa {
         }
     }
 
+    /**
+     * Opowiada za stworzenie armii, tj. utworzenie oraz rozmieszczenie jednostek na mapie.
+     * @param armia armia, która ma zostać stworzona
+     */
     public void stworzArmie(Armia armia) {
         nazwa = armia.toString();
         kolumny = armia.kolumny();
@@ -106,6 +127,11 @@ class Mapa {
         nr++;
     }
 
+    /**
+     * Zapisuje inforację o rozpoczęciu nowej tury oraz liczebności armi w tym momencie.
+     * @param tura inforamcja o numerze aktualnej przebiegającej tury
+     * @throws IOException
+     */
     public void zapisTury(int tura) throws IOException {
         File zapis = new File("zapis.txt");
         FileWriter writer = new FileWriter(zapis, true);
@@ -114,6 +140,10 @@ class Mapa {
         writer.close();
     }
 
+    /**
+     * Zapisuje do pliku aktualną sytuajcę na polu bitwy.
+     * @throws IOException
+     */
     public void zapis() throws IOException {
         File zapis = new File("zapis.txt");
         FileWriter writer = new FileWriter(zapis, true);
@@ -130,7 +160,10 @@ class Mapa {
         writer.write("---------------------------");
         writer.close();
     }
-
+    /**
+     * Zapisuje do pliku rezululat bitwy.
+     * @param tura inforamcja o numerze aktualnej przebiegającej tury
+     */
     public void zapisKoniec(int tura) throws IOException {
         File zapis = new File("zapis.txt");
         FileWriter writer = new FileWriter(zapis, true);
