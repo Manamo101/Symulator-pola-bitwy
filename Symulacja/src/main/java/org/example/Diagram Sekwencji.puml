@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Piechota
+control Atak
+entity Mapa
+control Ruch
+Piechota -> Atak
+activate Atak
+Atak -> Mapa: znajdź przeciwnika
+alt Czy przeciwnik znajduje się w zasięgu?
+Mapa --> Atak: index przeciwnika
+Atak ->  Atak: atakuj
+else
+alt Czy mogę wykonać ruch w kierunku przeciwnika?
+Atak ->  Ruch: rusz się
+deactivate Atak
+activate Ruch
+Ruch --> Mapa: ustaw koordynaty
+deactivate Ruch
+else
+
+end
+end
+
+@enduml
