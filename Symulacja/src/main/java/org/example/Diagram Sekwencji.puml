@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Piechota
+actor LekkaPiechota
+control Atak
+control Ruch
+entity Mapa
+
+Piechota ->  Atak: atakuj()
+activate Atak
+Atak -> Mapa: znajdźPrzeciwnika()
+alt Czy przeciwnik znajduje się w zasięgu?
+Mapa --> Atak: index[]
+Atak -> LekkaPiechota: obrazenia()
+else
+Mapa --> Atak: NULL
+deactivate Atak
+end
+
+
+Piechota ->  Ruch: ruszSie()
+activate Ruch
+Ruch -> Mapa: środekCiężkości()
+Mapa --> Ruch: środekCiężkości[]
+Ruch -> Mapa: ruszSie()
+deactivate Ruch
+Mapa --> Piechota: index[]
+
+
+
+@enduml
