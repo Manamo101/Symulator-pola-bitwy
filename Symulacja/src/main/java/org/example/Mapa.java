@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *     Wykorzystywana jest aby oczyścić kod w metodzie main z niepotrzebnych zabiegów, które mogą działać oddzielnie.
  * </p>
  */
-class Mapa {
+public class Mapa {
     private static int nr = 1;
     private int x = 0;
     private int rzedy, kolumny;
