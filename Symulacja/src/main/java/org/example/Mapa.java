@@ -15,11 +15,11 @@ class Mapa {
     private static int nr = 1;
     private int x = 0;
     private int rzedy, kolumny;
-    NazwaJednostki[] jednostkiKolumny;
+    private NazwaJednostki[] jednostkiKolumny;
     private String nazwa;
-    static ArrayList<ArrayList<Jednostki>> mapa;
-    Armia armia1;
-    Armia armia2;
+    private ArrayList<ArrayList<Jednostki>> mapa;
+    private Armia armia1;
+    private Armia armia2;
 
     Mapa(ArrayList<ArrayList<Jednostki>> mapa) {
         this.mapa = mapa;

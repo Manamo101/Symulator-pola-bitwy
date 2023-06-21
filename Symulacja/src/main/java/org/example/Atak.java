@@ -34,7 +34,7 @@ public class Atak {
     /**
      * Wykouje atak na jednostce, tzn. zabiera jej punkty życia.
      */
-    void atakuj(){
+    public void atakuj(){
         Integer[] index=znajdzPrzeciwnika();
         if(index != null) {
             mapa.get(index[0]).get(index[1]).obrazenia(damage);
@@ -77,4 +77,4 @@ public class Atak {
         }
         return null;
     }
-    }
+}
