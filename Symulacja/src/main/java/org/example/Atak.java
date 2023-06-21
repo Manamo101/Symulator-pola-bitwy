@@ -13,7 +13,7 @@ public class Atak {
         this.damage=damage;
         this.mapa=mapa;
     }
-    void atakuj(){
+    public void atakuj(){
         Integer[] index=znajdzPrzeciwnika();
         if(index != null) {
             mapa.get(index[0]).get(index[1]).obrazenia(damage);
@@ -23,7 +23,7 @@ public class Atak {
         this.koordynaty=koordynaty;
     }
 
-    Integer[] znajdzPrzeciwnika() {
+    private Integer[] znajdzPrzeciwnika() {
         Integer[] xy = new Integer[2];
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
@@ -47,4 +47,4 @@ public class Atak {
         }
         return null;
     }
-    }
+}
