@@ -3,7 +3,7 @@ package org.example;
 import java.io.*;
 import java.util.ArrayList;
 
-class Mapa {
+public class Mapa {
     private static int nr = 1;
     private int x = 0;
     private int rzedy, kolumny;
